@@ -240,7 +240,7 @@ interface VehicleMp extends EntityMp {
 
 	explode(): void;
 	getColor(id: number): number; // id: 0 - primary, 1 - secondary
-	getColorRGB(): RGB;
+	getColorRGB(id: number): RGB; // id: 0 - primary, 1 - secondary
 	getExtra(index: number): boolean;
 	getMod(modType: number): number;
 	getNeonColor(): number[];
