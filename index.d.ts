@@ -31,8 +31,8 @@ type Mp = {
 	vehicles: VehicleMpPool;
 	world: WorldMp;
 
-	Event: { 
-		new(eventName: RageEnums.EventKey | string, callback: (...args: any[]) => void): EventMp 
+	Event: {
+		new(eventName: RageEnums.EventKey | string, callback: (...args: any[]) => void): EventMp
 	};
 	Vector3: Vector3Mp;
 
@@ -85,7 +85,7 @@ interface EntityMp {
 	position: Vector3Mp;
 	readonly id: number;
 	readonly type: RageEnums.EntityType;
-	
+
 	getVariable(name: string): any | undefined;
 	destroy(): void;
 	dist(position: Vector3Mp): number;
@@ -267,11 +267,11 @@ interface VehicleMp extends EntityMp {
 
 interface WorldMp {
 	weather: RageEnums.Weather | string;
-	time: { 
+	time: {
 		hour: number,
 		minute: number,
 		second: number
-		
+
 		set(hour: number, minute: number, second: number): void;
 	};
 	trafficLights: {
@@ -331,7 +331,8 @@ interface EntityMpPool<TEntity> {
 	exists(entity: TEntity | number): boolean;
 	forEach(fn: (entity: TEntity) => void): void;
 	forEachInRange(position: Vector3Mp, range: number, fn: (entity: TEntity) => void): void;
-	forEachInDimension(position: Vector3Mp, range: number, dimension: number, fn: (entity: TEntity) => void): void;
+	forEachInRange(position: Vector3Mp, range: number, dimension: number, fn: (entity: TEntity) => void): void;
+	forEachInDimension(dimension: number, fn: (entity: TEntity) => void): void;
 	toArray(): TEntity[];
 }
 
